@@ -58,3 +58,5 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
+
+gem 'rails-i18n', '~> 6.0.0'

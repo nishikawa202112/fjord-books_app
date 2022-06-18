@@ -1,0 +1,31 @@
+ja:
+  notice:
+    create: 本の登録が完了しました
+    update: 本の更新が完了しました
+    destroy: 本の削除が完了しました
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        title: 表題
+        memo: 説明
+        author: 著者
+        picture: 表紙
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
+
+  Books: 本
+  Editing Book: 本の編集
+  Title: 表題
+  Memo: 説明
+  Author: 著者
+  Picture: 表紙
+  Show: 参照
+  Edit: 編集
+  Destroy: 削除
+  New Book: 新規作成
+  Back: 戻る
+      
