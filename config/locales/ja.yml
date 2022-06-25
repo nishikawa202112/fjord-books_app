@@ -16,16 +16,11 @@ ja:
     submit:
       create: 登録する
       update: 更新する
-
-  Books: 本
-  Editing Book: 本の編集
-  Title: 表題
-  Memo: 説明
-  Author: 著者
-  Picture: 表紙
-  Show: 参照
-  Edit: 編集
-  Destroy: 削除
-  New Book: 新規作成
-  Back: 戻る
-      
+  books:
+    title:
+      edit: 本の編集
+      new: 新規作成
+    show: 参照
+    edit: 編集
+    destroy: 削除
+    back: 戻る  
