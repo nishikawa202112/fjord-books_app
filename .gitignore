@@ -42,3 +42,11 @@ yarn-debug.log*
 
 /public/uploads/*
 .env
+
+app/assets/stylesheets/user.scss
+app/assets/stylesheets/users.scss
+test/controllers/user_controller_test.rb
+test/controllers/users_controller_test.rb
+test/fixtures/users.yml
+test/models/user_test.rb
+

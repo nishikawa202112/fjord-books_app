@@ -7,6 +7,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: Eメール 
+        name: 名前
+        postcode: 郵便番号
+        address: 住所
+        self_introduction: 自己紹介          
   date:
     abbr_day_names:
     - 日
@@ -215,6 +224,30 @@ ja:
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      users_list: ユーザー一覧
+      my_page: マイページ
+      logout: ログアウト
+    devise:
+      log_in: ログイン
+      sign_up: 登録
+      fogot_password: パスワードを忘れましたか？ 
+      send_reset_mail: パスワードのリセット手順を送信
+      characters_minimum: 文字以上
+      title: こんにちは
+      reset_password_explanation: パスワードリセットのリクエストが行われました。以下のリンクをクリックしてパスワードを変更できます。
+      reset_password_link: パスワードを変更する
+      please_ignore: もしあなたがパスワードリセットをリクエストしていない場合は、このメールを無視してください。
+      wont_change: 上記リンクをクリックして新しいパスワードを作成しない限り、パスワードは変更されません。 
+      change_password: パスワードの変更
+      new_password: 新しいパスワードを入力してください
+      confirm_new_password: 再入力してください
+      decide_new_password: パスワードの変更を確定する
+      leave_blank: 変更しない場合は空白のままにしてください
+      current_password_to_confirm: 確認の為、現在のパスワードを入力してください
+      cancel: アカウントの削除
+      unhappy: 気に入りませんでしたか？
+      cancel_my_account: アカウントを削除する
+
     pagination:
       first: '最初'
       last: '最後'
