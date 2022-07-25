@@ -238,3 +238,9 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  follow_follower:
+    follow: フォローする
+    unfollow: フォロー解除する
+    title_follow: フォロー一覧
+    title_follower: フォロワー一覧
+    notice_nothing: ユーザーはいません 
