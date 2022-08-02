@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: %i(index show) do
     member do
       get 'followings', 'followers'
-      resources :user_relationships, only:%i(create destroy)
+      resource :user_relationships, only:%i(create destroy)
     end
   end
 end

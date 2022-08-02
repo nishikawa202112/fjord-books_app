@@ -5,5 +5,5 @@ class UserRelationship < ApplicationRecord
   belongs_to :followed, class_name: 'User'
 
   validates :follower_id, presence: true
-  validates :followed_id, presence: true
+  validates :followed_id, presence: true, uniqueness: { scope: :follower_id }
 end
