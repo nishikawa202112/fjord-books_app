@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= Report.human_attribute_name(:date) %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= Comment.human_attribute_name(:message) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.each do |comment| %>
+      <tr>
+        <td><%= l comment.created_at, format: :short %></td>
+        <% if comment.user.name == "" %>
+          <td><%= comment.user.email %></td>
+        <% else %>  
+          <td><%= comment.user.name %></td>
+        <% end %>
+        <td><%= comment.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.hidden_field :user_id, { value: current_user[:id] } %>
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_area :message, required: true %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
