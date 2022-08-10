@@ -11,7 +11,7 @@
     <% commentable.comments.each do |comment| %>
       <tr>
         <td><%= l comment.created_at, format: :short %></td>
-        <% if comment.user.name == "" %>
+        <% if comment.user.name.empty? %>
           <td><%= comment.user.email %></td>
         <% else %>  
           <td><%= comment.user.name %></td>

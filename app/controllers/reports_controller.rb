@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
   def edit; end
 
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.build(report_params)
     if @report.save
       redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
@@ -44,7 +44,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params[:report][:user_id] = current_user[:id]
-    params.require(:report).permit(:user_id, :title, :content)
+    params.require(:report).permit(:title, :content)
   end
 end
