@@ -4,44 +4,52 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @report = reports(:one)
+
+    visit root_url
+    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'パスワード', with: 'password'
+    click_button 'ログイン'
   end
 
   test 'visiting the index' do
-    visit books_url
-    assert_selector 'h1', text: 'Books'
+    visit reports_url
+    assert_selector 'h1', text: '日報'
   end
 
-  test 'creating a Book' do
-    visit books_url
-    click_on 'New Book'
+  test 'creating a Report' do
+    visit reports_url
+    click_on '新規作成'
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Create Book'
+    fill_in 'タイトル', with: '８月です'
+    fill_in '内容', with: '暑いです。'
+    click_on '登録する'
 
-    assert_text 'Book was successfully created'
-    click_on 'Back'
+    assert_text '日報が作成されました。'
+    click_on '戻る'
   end
 
-  test 'updating a Book' do
-    visit books_url
-    click_on 'Edit', match: :first
+  test 'updating a Report' do
+    visit reports_url
+    click_link '編集'
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Update Book'
+    fill_in 'タイトル', with: @report.title
+    fill_in '内容', with: @report.content
+    fill_in 'タイトル', with: '10月'
+    click_on '更新する'
 
-    assert_text 'Book was successfully updated'
-    click_on 'Back'
+    assert_text '日報が更新されました。'
+    assert_text '10月'
+    assert_text 'まだまだ暑いです。'
+    click_on '戻る'
   end
 
-  test 'destroying a Book' do
-    visit books_url
+  test 'destroying a Report' do
+    visit reports_url
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on '削除', match: :first
     end
 
-    assert_text 'Book was successfully destroyed'
+    assert_text '日報が削除されました。'
   end
 end
