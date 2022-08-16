@@ -5,12 +5,9 @@ class Reports::CommentsController < CommentsController
 
   def create
     super
-    create_internal
   end
 
   private
-
-  def create_internal; end
 
   def set_commentable
     @commentable = Report.find(params[:report_id])

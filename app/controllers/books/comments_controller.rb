@@ -5,12 +5,9 @@ class Books::CommentsController < CommentsController
 
   def create
     super
-    create_internal
   end
 
   private
-
-  def create_internal; end
 
   def set_commentable
     @commentable = Book.find(params[:book_id])
