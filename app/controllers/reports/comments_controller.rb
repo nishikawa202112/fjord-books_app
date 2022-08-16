@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < CommentsController
-  before_action :set_commentable, only: %i[create]
-
-  def create
-    super
-  end
+  before_action :set_commentable
 
   private
 
