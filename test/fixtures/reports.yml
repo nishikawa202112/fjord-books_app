@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 2
+bob's_report:
   title: ９月です
   content: まだまだ暑いです。
+  user: bob
 
-two:
-  user_id: 1
-  title: MyString
-  content: MyText
+alice's_report:
+  title: 11月
+  content: 紅葉の季節です。
+  user: alice

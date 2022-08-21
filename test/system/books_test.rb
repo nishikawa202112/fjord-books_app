@@ -4,8 +4,6 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:one)
-
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
@@ -13,43 +11,57 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit reports_url
-    assert_selector 'h1', text: '日報'
+    visit books_url
+    assert_selector 'h1', text: '本'
   end
 
-  test 'creating a Report' do
-    visit reports_url
+  test 'creating a book' do
+    visit books_url
     click_on '新規作成'
 
-    fill_in 'タイトル', with: '８月です'
-    fill_in '内容', with: '暑いです。'
+    fill_in 'タイトル', with: 'Ruby超入門'
+    fill_in 'メモ', with: 'わかりやすいです。'
+    fill_in '著者', with: 'igaiga'
     click_on '登録する'
 
-    assert_text '日報が作成されました。'
-    click_on '戻る'
+    assert_text '本が作成されました。'
+    assert_text 'Ruby超入門'
+    assert_text 'わかりやすいです。'
+    assert_text 'igaiga'
   end
 
-  test 'updating a Report' do
-    visit reports_url
-    click_link '編集'
+  test 'updating a book' do
+    visit books_url
+    click_link '編集', match: :prefer_exact
 
-    fill_in 'タイトル', with: @report.title
-    fill_in '内容', with: @report.content
-    fill_in 'タイトル', with: '10月'
+    fill_in 'タイトル', with: 'Ruby入門'
+    fill_in 'メモ', with: 'いつも参考にしています。'
+    fill_in '著者', with: '伊藤淳一'
     click_on '更新する'
 
-    assert_text '日報が更新されました。'
-    assert_text '10月'
-    assert_text 'まだまだ暑いです。'
-    click_on '戻る'
+    assert_text '本が更新されました。'
+    assert_text 'Ruby入門'
+    assert_text 'いつも参考にしています。'
+    assert_text '伊藤淳一'
   end
 
-  test 'destroying a Report' do
-    visit reports_url
+  test 'destroying a book' do
+    visit books_url
+
+    assert_text 'Ruby on Rails 6'
+    assert_text '超入門'
+    assert_text '掌田津耶乃'
+    assert_text 'Web技術の基本'
+    assert_text 'イラスト図解式'
+    assert_text '小林恭平'
+
     page.accept_confirm do
       click_on '削除', match: :first
     end
 
-    assert_text '日報が削除されました。'
+    assert_text '本が削除されました。'
+    assert_text 'Web技術の基本'
+    assert_text 'イラスト図解式'
+    assert_text '小林恭平'
   end
 end
