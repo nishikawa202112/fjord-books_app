@@ -49,19 +49,14 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
 
     assert_text 'Ruby on Rails 6'
-    assert_text '超入門'
-    assert_text '掌田津耶乃'
     assert_text 'Web技術の基本'
-    assert_text 'イラスト図解式'
-    assert_text '小林恭平'
 
     page.accept_confirm do
       click_on '削除', match: :first
     end
 
     assert_text '本が削除されました。'
+    assert_no_text 'Ruby on Rails 6'
     assert_text 'Web技術の基本'
-    assert_text 'イラスト図解式'
-    assert_text '小林恭平'
   end
 end

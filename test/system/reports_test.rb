@@ -45,16 +45,14 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
 
     assert_text '11月'
-    assert_text 'alice'
     assert_text '９月です'
-    assert_text 'bob'
 
     page.accept_confirm do
       click_on '削除', match: :first
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text '11月'
     assert_text '９月です'
-    assert_text 'bob'
   end
 end
